@@ -1,15 +1,14 @@
-#cloud-config
-users: # Collection von Benutzern
-  - name: ubuntu # Der Benutzername des ersten Benutzers
-    sudo: ALL=(ALL) NOPASSWD:ALL # sudo-Regeln für diesen Benutzer
-    groups: users, admin # Gruppen, in denen der Benutzer Mitglied ist
-    home: /home/ubuntu # Home-Verzeichnis des Benutzers
-    shell: /bin/bash # Shell des Benutzers
-    lock_passwd: false # Passwort des Benutzers sperren
-    plain_text_passwd: 'password' # Passwort des Benutzers
-ssh_pwauth: true # Passwort-Authentifizierung für SSH aktivieren
-disable_root: false # Root-Benutzer sperren
-packages: # Pakete, die installiert werden sollen
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    home: /home/ubuntu
+    shell: /bin/bash
+    lock_passwd: false
+    plain_text_passwd: 'password'
+ssh_pwauth: true
+disable_root: false
+packages:
   - apache2
   - curl
   - wget
