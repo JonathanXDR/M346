@@ -15,3 +15,18 @@ packages:
   - php
   - libapache2-mod-php
   - php-mysqli
+  - adminer
+
+write_files:
+  - content: |
+      <?php
+        // Show all information, defaults to INFO_ALL
+        phpinfo();
+      ?>
+    path: /var/www/html/info.php
+    owner: root:root
+    permissions: '0644'
+
+runcmd:
+  - [sudo a2enconf adminer]
+  - [sudo systemctl restart apache2]
