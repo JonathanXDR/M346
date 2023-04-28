@@ -32,7 +32,7 @@ write_files:
   - content: |
       server {
         listen        80;
-        server_name   <Public-IP-Web!>;
+        server_name   52.207.103.22;
         location / {
           proxy_pass         http://127.0.0.1:5001;
           proxy_http_version 1.1;
@@ -49,7 +49,7 @@ runcmd:
   - sudo mkdir /var/www
   - sudo mkdir /var/www/app
   - sudo git clone https://gitlab.com/ch-tbz-it/Stud/m346/m346scripts.git
-  - sudo sed -i 's/<your-connection-string>/jdbc:mysql:\/\/<Private-IP-DB!>:3306\/shop/g' ./m346scripts/KN06/java/production.properties
+  - sudo sed -i 's/<your-connection-string>/jdbc:mysql:\/\/172.31.10.204:3306\/shop/g' ./m346scripts/KN06/java/production.properties
   - sudo cp -r ./m346scripts/KN06/java/* /var/www/app/
   - sudo systemctl enable shop-app.service
   - sudo systemctl start shop-app.service

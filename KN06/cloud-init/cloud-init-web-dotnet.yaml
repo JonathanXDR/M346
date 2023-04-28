@@ -35,7 +35,7 @@ write_files:
   - content: |
       server {
         listen        80;
-        server_name   <Public-IP-Web!>;
+        server_name   52.207.103.22;
         location / {
           proxy_pass         http://127.0.0.1:5000;
           proxy_http_version 1.1;
@@ -52,7 +52,7 @@ runcmd:
   - sudo mkdir /var/www
   - sudo mkdir /var/www/app
   - sudo git clone https://gitlab.com/ch-tbz-it/Stud/m346/m346scripts.git
-  - sudo sed -i 's/<your-connection-string>/server=<Private-IP-DB!>;user id=admin;password=password;database=shop/g' ./m346scripts/KN06/dotnet/appsettings.json
+  - sudo sed -i 's/<your-connection-string>/server=172.31.10.204;user id=admin;password=password;database=shop/g' ./m346scripts/KN06/dotnet/appsettings.json
   - sudo cp -r ./m346scripts/KN06/dotnet/* /var/www/app/
   - sudo systemctl enable shop-app.service
   - sudo systemctl start shop-app.service
